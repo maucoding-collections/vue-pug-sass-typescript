@@ -2,7 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const target_dir = "../../dist/";
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
 
 module.exports = {
   entry: {
@@ -50,7 +50,7 @@ module.exports = {
         test: /\.vue$/,
         exclude: /(node_modules)/,
         loader: "vue-loader"
-      },
+      }
     ]
   },
 
@@ -58,11 +58,4 @@ module.exports = {
     // make sure to include the plugin!
     new VueLoaderPlugin()
   ]
-
-  // resolve: {
-  //   extensions: [".js", ".vue"],
-  //   alias: {
-  //     vue$: "vue/dist/vue.esm.js"
-  //   }
-  // },
 };
