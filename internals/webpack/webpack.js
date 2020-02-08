@@ -32,12 +32,30 @@ module.exports = {
     ])
   ],
 
-  resolve: {
-    extensions: [".js", ".jsx"]
-  },
-
   module: {
     rules: [
+      {
+        test: /\.sass$/,
+        exclude: /(node_modules)/,
+        use: [
+          "vue-style-loader",
+          "css-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              // sass-loader version >= 8
+              sassOptions: {
+                indentedSyntax: true
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.css$/,
+        exclude: /(node_modules)/,
+        loader: "css-loader"
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -50,10 +68,26 @@ module.exports = {
         test: /\.vue$/,
         exclude: /(node_modules)/,
         loader: "vue-loader"
+      },
+      {
+        test: /\.pug$/,
+        exclude: /(node_modules)/,
+        loader: "pug-plain-loader"
+      },
+      {
+        test: /\.ts$/,
+        exclude: /(node_modules)/,
+        loader: "ts-loader",
+        options: { appendTsSuffixTo: [/\.vue$/] }
       }
     ]
   },
-
+  resolve: {
+    extensions: [".ts", ".js", ".vue"],
+    alias: {
+      vue$: "vue/dist/vue.esm.js"
+    }
+  },
   plugins: [
     // make sure to include the plugin!
     new VueLoaderPlugin()
