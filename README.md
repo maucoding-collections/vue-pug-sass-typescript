@@ -1,5 +1,8 @@
 # Vuw with Pug, Sass and Typescript
 
+## Youtube
+https://www.youtube.com/watch?v=VkzoBWDZHhA
+
 ## What Inside
 
 - [Vue](https://vuejs.org/) Vue Js
